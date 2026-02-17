@@ -1,8 +1,10 @@
-# DealSweep
+# SaveSweep
 
-**DealSweep checks your area every week for the best coupons, cash-back offers, and local deals — so you never miss savings again.**
+**Savings on autopilot.** We sweep the deals. You keep the cash.
 
-A SaaS application that scrapes the internet for local and national deals on food — groceries, restaurants, lunch specials, coupons, and cash-back offers.
+SaveSweep automatically finds the best local coupons and cash-back deals every week — so you never miss savings. A SaaS application that scrapes the internet for local and national deals on food — groceries, restaurants, lunch specials, coupons, and cash-back offers.
+
+**Website:** [savesweep.com](https://savesweep.com)
 
 ## Tech Stack
 

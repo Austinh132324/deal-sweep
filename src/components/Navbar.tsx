@@ -14,7 +14,7 @@ export default function Navbar() {
           <Link to="/" className="flex items-center gap-2 group">
             <ScanSearch className="h-8 w-8 text-primary-600 group-hover:text-primary-700 transition-colors" />
             <span className="text-xl font-bold text-gray-900 tracking-tight">
-              Deal<span className="text-primary-600">Sweep</span>
+              Save<span className="text-primary-600">Sweep</span>
             </span>
           </Link>
 

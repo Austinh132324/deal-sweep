@@ -12,7 +12,7 @@ export default function Login() {
           <Link to="/" className="inline-flex items-center gap-2 mb-6">
             <ScanSearch className="h-10 w-10 text-primary-600" />
             <span className="text-2xl font-bold text-gray-900 tracking-tight">
-              Deal<span className="text-primary-600">Sweep</span>
+              Save<span className="text-primary-600">Sweep</span>
             </span>
           </Link>
           <h1 className="text-2xl font-bold text-gray-900">Welcome back</h1>

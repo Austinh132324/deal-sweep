@@ -9,13 +9,12 @@ export default function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <ScanSearch className="h-7 w-7 text-primary-400" />
               <span className="text-lg font-bold text-white tracking-tight">
-                Deal<span className="text-primary-400">Sweep</span>
+                Save<span className="text-primary-400">Sweep</span>
               </span>
             </div>
             <p className="text-sm leading-relaxed max-w-md">
-              DealSweep checks your area every week for the best coupons,
-              cash-back offers, and local deals — so you never miss savings
-              again.
+              SaveSweep automatically finds the best local coupons and
+              cash-back deals every week — so you never miss savings.
             </p>
           </div>
           <div>
@@ -36,7 +35,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-800 mt-10 pt-6 text-center text-xs">
-          &copy; {new Date().getFullYear()} DealSweep. All rights reserved.
+          &copy; {new Date().getFullYear()} SaveSweep. All rights reserved.
         </div>
       </div>
     </footer>

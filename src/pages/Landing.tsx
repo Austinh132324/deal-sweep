@@ -24,16 +24,15 @@ export default function Landing() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-28 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-6">
             <Zap className="h-4 w-4" />
-            New deals added weekly
+            Savings on autopilot
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight max-w-3xl mx-auto">
-            Never Miss a{" "}
-            <span className="text-primary-600">Local Deal</span> Again
+            We Sweep the Deals.{" "}
+            <span className="text-primary-600">You Keep the Cash.</span>
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            DealSweep checks your area every week for the best coupons,
-            cash-back offers, and local deals — so you never miss savings
-            again.
+            SaveSweep automatically finds the best local coupons and cash-back
+            deals every week — so you never miss savings.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
@@ -72,10 +71,10 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-              How DealSweep Saves You Money
+              Turn Everyday Spending into Real Savings
             </h2>
             <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-              We do the hard work of finding deals so you don't have to.
+              SaveSweep does the hard work of finding deals so you don't have to.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -199,7 +198,7 @@ export default function Landing() {
             </h2>
             <p className="text-primary-100 text-lg mb-8 max-w-lg mx-auto">
               Join thousands of smart shoppers who save every week with
-              DealSweep.
+              SaveSweep.
             </p>
             <Link
               to="/signup"

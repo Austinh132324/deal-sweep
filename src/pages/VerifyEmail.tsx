@@ -1,7 +1,8 @@
 import { useState, useRef, type FormEvent, type KeyboardEvent } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ScanSearch, Mail, Loader2 } from "lucide-react";
-import { supabase } from "../lib/supabase";
+import { Mail, Loader2 } from "lucide-react";
+import { verifyOtp, resendOtp } from "../services/auth";
+import Logo from "../components/ui/Logo";
 
 const CODE_LENGTH = 6;
 
@@ -57,11 +58,7 @@ export default function VerifyEmail() {
     setError("");
     setLoading(true);
 
-    const { error: verifyError } = await supabase.auth.verifyOtp({
-      email,
-      token,
-      type: "signup",
-    });
+    const { error: verifyError } = await verifyOtp(email, token);
 
     setLoading(false);
 
@@ -78,10 +75,7 @@ export default function VerifyEmail() {
     setResent(false);
     setError("");
 
-    const { error: resendError } = await supabase.auth.resend({
-      type: "signup",
-      email,
-    });
+    const { error: resendError } = await resendOtp(email);
 
     setResending(false);
 
@@ -113,12 +107,9 @@ export default function VerifyEmail() {
     <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gray-50 py-12 px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center gap-2 mb-6">
-            <ScanSearch className="h-10 w-10 text-primary-600" />
-            <span className="text-2xl font-bold text-gray-900 tracking-tight">
-              Save<span className="text-primary-600">Sweep</span>
-            </span>
-          </Link>
+          <div className="mb-6">
+            <Logo size="lg" />
+          </div>
           <div className="mx-auto w-14 h-14 rounded-full bg-primary-100 flex items-center justify-center mb-4">
             <Mail className="h-7 w-7 text-primary-600" />
           </div>

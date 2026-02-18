@@ -1,7 +1,8 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ScanSearch, Menu, X, LogOut, User } from "lucide-react";
+import { Menu, X, LogOut, User } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import Logo from "./ui/Logo";
 
 export default function Navbar() {
   const location = useLocation();
@@ -22,12 +23,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-2 group">
-            <ScanSearch className="h-8 w-8 text-primary-600 group-hover:text-primary-700 transition-colors" />
-            <span className="text-xl font-bold text-gray-900 tracking-tight">
-              Save<span className="text-primary-600">Sweep</span>
-            </span>
-          </Link>
+          <Logo />
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-6">

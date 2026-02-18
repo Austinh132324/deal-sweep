@@ -1,4 +1,4 @@
-import { ScanSearch } from "lucide-react";
+import Logo from "./ui/Logo";
 
 export default function Footer() {
   return (
@@ -6,11 +6,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <ScanSearch className="h-7 w-7 text-primary-400" />
-              <span className="text-lg font-bold text-white tracking-tight">
-                Save<span className="text-primary-400">Sweep</span>
-              </span>
+            <div className="mb-4">
+              <Logo size="sm" linkTo="" variant="dark" />
             </div>
             <p className="text-sm leading-relaxed max-w-md">
               SaveSweep automatically finds the best local coupons and

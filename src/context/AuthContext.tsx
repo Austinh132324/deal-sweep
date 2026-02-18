@@ -9,6 +9,7 @@ import {
 } from "react";
 import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "../lib/supabase";
+import { getSession, onAuthStateChange, signOut as authSignOut } from "../services/auth";
 import type { Profile } from "../lib/database.types";
 
 interface AuthContextValue {
@@ -43,7 +44,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [session, fetchProfile]);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session: s } }) => {
+    getSession().then(({ data: { session: s } }) => {
       setSession(s);
       if (s?.user) {
         fetchProfile(s.user.id).finally(() => setLoading(false));
@@ -54,7 +55,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, s) => {
+    } = onAuthStateChange((_event, s) => {
       setSession(s);
       if (s?.user) {
         fetchProfile(s.user.id);
@@ -66,8 +67,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => subscription.unsubscribe();
   }, [fetchProfile]);
 
-  const signOut = async () => {
-    await supabase.auth.signOut();
+  const handleSignOut = async () => {
+    await authSignOut();
     setSession(null);
     setProfile(null);
   };
@@ -79,7 +80,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         user: session?.user ?? null,
         profile,
         loading,
-        signOut,
+        signOut: handleSignOut,
         refreshProfile,
       }}
     >

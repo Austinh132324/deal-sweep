@@ -6,7 +6,7 @@ import { useAuth } from "../context/AuthContext";
 export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { user, signOut } = useAuth();
+  const { user, profile, signOut } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
   const isLanding = location.pathname === "/";
 
@@ -16,7 +16,7 @@ export default function Navbar() {
     setMobileOpen(false);
   };
 
-  const firstName = user?.user_metadata?.first_name as string | undefined;
+  const firstName = profile?.first_name || undefined;
 
   return (
     <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">

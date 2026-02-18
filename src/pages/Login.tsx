@@ -1,7 +1,8 @@
 import { useState, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ScanSearch, Eye, EyeOff, Loader2 } from "lucide-react";
-import { supabase } from "../lib/supabase";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { signIn } from "../services/auth";
+import Logo from "../components/ui/Logo";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -16,10 +17,7 @@ export default function Login() {
     setError("");
     setLoading(true);
 
-    const { error: signInError } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+    const { error: signInError } = await signIn(email, password);
 
     setLoading(false);
 
@@ -35,12 +33,9 @@ export default function Login() {
     <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gray-50 py-12 px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center gap-2 mb-6">
-            <ScanSearch className="h-10 w-10 text-primary-600" />
-            <span className="text-2xl font-bold text-gray-900 tracking-tight">
-              Save<span className="text-primary-600">Sweep</span>
-            </span>
-          </Link>
+          <div className="mb-6">
+            <Logo size="lg" />
+          </div>
           <h1 className="text-2xl font-bold text-gray-900">Welcome back</h1>
           <p className="mt-2 text-sm text-gray-600">
             Log in to access your personalized deals

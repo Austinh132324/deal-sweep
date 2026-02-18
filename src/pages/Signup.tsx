@@ -15,9 +15,18 @@ export default function Signup() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // TODO remove whitelist for signup when ready for production
+  const allowedEmails = ["littledawgar@hotmail.com"];
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError("");
+
+    if (!allowedEmails.includes(email.toLowerCase())) {
+      setError("Signups are currently restricted. Please contact us for access.");
+      return;
+    }
+
     setLoading(true);
 
     const { error: signUpError } = await supabase.auth.signUp({

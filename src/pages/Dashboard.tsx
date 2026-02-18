@@ -2,11 +2,13 @@ import { useState, useMemo } from "react";
 import { MapPin, Filter, Search } from "lucide-react";
 import DealCard from "../components/DealCard";
 import { deals, regions, categoryLabels, type Deal } from "../data/deals";
+import { useAuth } from "../context/AuthContext";
 
 const categories = Object.keys(categoryLabels) as Deal["category"][];
 
 export default function Dashboard() {
-  const [selectedRegion, setSelectedRegion] = useState("national");
+  const { profile } = useAuth();
+  const [selectedRegion, setSelectedRegion] = useState(profile?.region ?? "national");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState("");
 

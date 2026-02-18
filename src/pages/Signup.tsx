@@ -1,10 +1,55 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { ScanSearch, Eye, EyeOff } from "lucide-react";
+import { useState, type FormEvent } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { ScanSearch, Eye, EyeOff, Loader2 } from "lucide-react";
 import { regions } from "../data/deals";
+import { supabase } from "../lib/supabase";
 
 export default function Signup() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [region, setRegion] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  // TODO remove whitelist for signup when ready for production
+  const allowedEmails = ["littledawgar@hotmail.com"];
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setError("");
+
+    if (!allowedEmails.includes(email.toLowerCase())) {
+      setError("Signups are currently restricted. Please contact us for access.");
+      return;
+    }
+
+    setLoading(true);
+
+    const { error: signUpError } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          first_name: firstName,
+          last_name: lastName,
+          region,
+        },
+      },
+    });
+
+    setLoading(false);
+
+    if (signUpError) {
+      setError(signUpError.message);
+      return;
+    }
+
+    navigate("/verify-email", { state: { email } });
+  };
 
   return (
     <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gray-50 py-12 px-4">
@@ -23,13 +68,7 @@ export default function Signup() {
         </div>
 
         <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              window.location.href = "/dashboard";
-            }}
-            className="space-y-5"
-          >
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1.5">
@@ -39,6 +78,8 @@ export default function Signup() {
                   id="firstName"
                   type="text"
                   required
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                   className="w-full px-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
                 />
               </div>
@@ -50,6 +91,8 @@ export default function Signup() {
                   id="lastName"
                   type="text"
                   required
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                   className="w-full px-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
                 />
               </div>
@@ -64,6 +107,8 @@ export default function Signup() {
                 type="email"
                 required
                 placeholder="you@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
               />
             </div>
@@ -79,6 +124,8 @@ export default function Signup() {
                   required
                   minLength={8}
                   placeholder="At least 8 characters"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="w-full px-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors pr-10"
                 />
                 <button
@@ -98,6 +145,8 @@ export default function Signup() {
               <select
                 id="region"
                 required
+                value={region}
+                onChange={(e) => setRegion(e.target.value)}
                 className="w-full px-4 py-2.5 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors bg-white"
               >
                 <option value="">Select your region</option>
@@ -109,11 +158,17 @@ export default function Signup() {
               </select>
             </div>
 
+            {error && (
+              <p className="text-sm text-red-600 text-center">{error}</p>
+            )}
+
             <button
               type="submit"
-              className="w-full py-2.5 rounded-lg bg-primary-600 text-white font-semibold text-sm hover:bg-primary-700 transition-colors shadow-sm"
+              disabled={loading}
+              className="w-full py-2.5 rounded-lg bg-primary-600 text-white font-semibold text-sm hover:bg-primary-700 transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
-              Create Account
+              {loading && <Loader2 className="h-4 w-4 animate-spin" />}
+              {loading ? "Creating Account..." : "Create Account"}
             </button>
           </form>
 

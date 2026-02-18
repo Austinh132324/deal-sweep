@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <!-- Rounded square background -->
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <!-- Broom handle -->
+  <line x1="155" y1="355" x2="320" y2="130" stroke="#ffffff" stroke-width="22" stroke-linecap="round"/>
+  <!-- Broom head (bristles) -->
+  <path d="M110 390 Q80 440 100 470 Q130 500 170 490 Q200 480 210 460 L155 355 Z" fill="#f59e0b" stroke="#ffffff" stroke-width="4"/>
+  <!-- Bristle detail lines -->
+  <line x1="120" y1="400" x2="110" y2="460" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+  <line x1="140" y1="395" x2="135" y2="470" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+  <line x1="160" y1="390" x2="160" y2="470" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+  <line x1="175" y1="380" x2="180" y2="460" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+  <!-- Sparkle stars -->
+  <g fill="#ffffff" opacity="0.9">
+    <polygon points="350,180 356,196 372,196 359,206 364,222 350,212 336,222 341,206 328,196 344,196" />
+    <polygon points="390,260 394,270 404,270 396,277 399,287 390,280 381,287 384,277 376,270 386,270" transform="scale(0.8) translate(100,70)"/>
+    <polygon points="280,100 284,110 294,110 286,117 289,127 280,120 271,127 274,117 266,110 276,110" transform="scale(0.7) translate(200,50)"/>
+  </g>
+  <!-- Dollar sign -->
+  <g transform="translate(370, 310)" fill="none" stroke="#34d399" stroke-width="8" stroke-linecap="round">
+    <path d="M0,-25 C20,-25 25,-15 20,-5 C15,5 -15,10 -20,20 C-25,30 -15,40 5,40"/>
+    <line x1="-5" y1="-35" x2="-5" y2="50"/>
+  </g>
+</svg>

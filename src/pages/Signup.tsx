@@ -67,7 +67,7 @@ export default function Signup() {
           </p>
         </div>
 
-        <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm">
+        <div className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-8 shadow-sm">
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="grid grid-cols-2 gap-3">
               <div>

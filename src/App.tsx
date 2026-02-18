@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import VerifyEmail from "./pages/VerifyEmail";
 import Dashboard from "./pages/Dashboard";
+import InstallPrompt from "./components/InstallPrompt";
 import { useAuth } from "./context/AuthContext";
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
@@ -47,6 +48,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <InstallPrompt />
     </div>
   );
 }

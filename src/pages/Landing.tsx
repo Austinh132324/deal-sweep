@@ -21,7 +21,7 @@ export default function Landing() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-accent-400/10" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-28 text-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-20 pb-16 sm:pb-28 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium mb-6">
             <Zap className="h-4 w-4" />
             Savings on autopilot
@@ -49,7 +49,7 @@ export default function Landing() {
               Browse Deals
             </a>
           </div>
-          <div className="mt-12 flex items-center justify-center gap-8 text-sm text-gray-500">
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-sm text-gray-500">
             <div className="flex items-center gap-1.5">
               <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
               <span>4.9 rating</span>
@@ -67,7 +67,7 @@ export default function Landing() {
       </section>
 
       {/* Features */}
-      <section id="features" className="py-24 bg-gray-50">
+      <section id="features" className="py-16 sm:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
@@ -120,7 +120,7 @@ export default function Landing() {
       </section>
 
       {/* Featured Deals */}
-      <section id="deals" className="py-24">
+      <section id="deals" className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-12">
             <div>
@@ -147,7 +147,7 @@ export default function Landing() {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-24 bg-gray-50">
+      <section id="how-it-works" className="py-16 sm:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
@@ -189,9 +189,9 @@ export default function Landing() {
       </section>
 
       {/* CTA */}
-      <section className="py-24">
+      <section className="py-16 sm:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-gradient-to-br from-primary-600 to-primary-800 rounded-3xl p-12 sm:p-16 text-white">
+          <div className="bg-gradient-to-br from-primary-600 to-primary-800 rounded-3xl p-8 sm:p-16 text-white">
             <TrendingUp className="h-12 w-12 mx-auto mb-6 opacity-80" />
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Ready to Start Saving?

@@ -129,13 +129,13 @@ export default function VerifyEmail() {
           </p>
         </div>
 
-        <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm">
+        <div className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-8 shadow-sm">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-3 text-center">
                 Enter verification code
               </label>
-              <div className="flex justify-center gap-2" onPaste={handlePaste}>
+              <div className="flex justify-center gap-1.5 sm:gap-2" onPaste={handlePaste}>
                 {code.map((digit, i) => (
                   <input
                     key={i}
@@ -146,7 +146,7 @@ export default function VerifyEmail() {
                     value={digit}
                     onChange={(e) => handleChange(i, e.target.value)}
                     onKeyDown={(e) => handleKeyDown(i, e)}
-                    className="w-12 h-14 text-center text-xl font-semibold rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                    className="w-10 h-12 sm:w-12 sm:h-14 text-center text-lg sm:text-xl font-semibold rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
                   />
                 ))}
               </div>

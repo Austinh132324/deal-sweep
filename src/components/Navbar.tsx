@@ -101,29 +101,29 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-white border-b border-gray-100 px-4 pb-4 space-y-2">
+        <div className="md:hidden bg-white border-b border-gray-100 px-4 pb-4 space-y-1">
           {isLanding && !user && (
             <>
-              <a href="#features" onClick={() => setMobileOpen(false)} className="block py-2 text-sm font-medium text-gray-700">Features</a>
-              <a href="#deals" onClick={() => setMobileOpen(false)} className="block py-2 text-sm font-medium text-gray-700">Deals</a>
-              <a href="#how-it-works" onClick={() => setMobileOpen(false)} className="block py-2 text-sm font-medium text-gray-700">How It Works</a>
+              <a href="#features" onClick={() => setMobileOpen(false)} className="block py-3 text-sm font-medium text-gray-700 active:bg-gray-50 rounded-lg px-2">Features</a>
+              <a href="#deals" onClick={() => setMobileOpen(false)} className="block py-3 text-sm font-medium text-gray-700 active:bg-gray-50 rounded-lg px-2">Deals</a>
+              <a href="#how-it-works" onClick={() => setMobileOpen(false)} className="block py-3 text-sm font-medium text-gray-700 active:bg-gray-50 rounded-lg px-2">How It Works</a>
             </>
           )}
 
           {user ? (
             <>
-              <Link to="/dashboard" onClick={() => setMobileOpen(false)} className="block py-2 text-sm font-medium text-gray-700">Dashboard</Link>
-              <span className="block py-2 text-sm text-gray-500">
+              <Link to="/dashboard" onClick={() => setMobileOpen(false)} className="block py-3 text-sm font-medium text-gray-700 active:bg-gray-50 rounded-lg px-2">Dashboard</Link>
+              <span className="block py-3 text-sm text-gray-500 px-2">
                 Signed in as {firstName ?? user.email}
               </span>
-              <button onClick={handleSignOut} className="block py-2 text-sm font-semibold text-red-600">
+              <button onClick={handleSignOut} className="block w-full text-left py-3 text-sm font-semibold text-red-600 active:bg-red-50 rounded-lg px-2">
                 Sign Out
               </button>
             </>
           ) : (
             <>
-              <Link to="/login" onClick={() => setMobileOpen(false)} className="block py-2 text-sm font-medium text-gray-700">Log In</Link>
-              <Link to="/signup" onClick={() => setMobileOpen(false)} className="block py-2 text-sm font-semibold text-primary-600">Get Started</Link>
+              <Link to="/login" onClick={() => setMobileOpen(false)} className="block py-3 text-sm font-medium text-gray-700 active:bg-gray-50 rounded-lg px-2">Log In</Link>
+              <Link to="/signup" onClick={() => setMobileOpen(false)} className="block py-3 text-sm font-semibold text-primary-600 active:bg-primary-50 rounded-lg px-2">Get Started</Link>
             </>
           )}
         </div>

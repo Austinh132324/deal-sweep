@@ -36,7 +36,7 @@ export default function InstallPrompt() {
       <div className="max-w-md mx-auto bg-white rounded-2xl border border-gray-200 shadow-2xl p-4 flex items-center gap-4">
         <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center">
           <img
-            src="/icons/broom.svg"
+            src={`${import.meta.env.BASE_URL}icons/broom.svg`}
             alt="SaveSweep"
             className="w-8 h-8"
           />

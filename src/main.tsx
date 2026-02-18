@@ -5,6 +5,13 @@ import { AuthProvider } from "./context/AuthContext";
 import "./index.css";
 import App from "./App";
 
+// Register service worker with the correct base path
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`);
+  });
+}
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter basename={import.meta.env.BASE_URL}>

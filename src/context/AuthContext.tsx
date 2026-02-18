@@ -26,7 +26,7 @@ const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!supabaseMisconfigured);
 
   const fetchProfile = useCallback(async (userId: string) => {
     const { data } = await supabase
@@ -44,10 +44,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [session, fetchProfile]);
 
   useEffect(() => {
-    if (supabaseMisconfigured) {
-      setLoading(false);
-      return;
-    }
+    if (supabaseMisconfigured) return;
 
     getSession().then(({ data: { session: s } }) => {
       setSession(s);

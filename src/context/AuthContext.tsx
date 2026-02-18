@@ -8,7 +8,7 @@ import {
   type ReactNode,
 } from "react";
 import type { Session, User } from "@supabase/supabase-js";
-import { supabase } from "../lib/supabase";
+import { supabase, supabaseMisconfigured } from "../lib/supabase";
 import { getSession, onAuthStateChange, signOut as authSignOut } from "../services/auth";
 import type { Profile } from "../lib/database.types";
 
@@ -44,6 +44,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [session, fetchProfile]);
 
   useEffect(() => {
+    if (supabaseMisconfigured) {
+      setLoading(false);
+      return;
+    }
+
     getSession().then(({ data: { session: s } }) => {
       setSession(s);
       if (s?.user) {

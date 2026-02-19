@@ -46,14 +46,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (supabaseMisconfigured) return;
 
-    getSession().then(({ data: { session: s } }) => {
-      setSession(s);
-      if (s?.user) {
-        fetchProfile(s.user.id).finally(() => setLoading(false));
-      } else {
-        setLoading(false);
-      }
-    });
+    getSession()
+      .then(({ data: { session: s } }) => {
+        setSession(s);
+        if (s?.user) {
+          fetchProfile(s.user.id).finally(() => setLoading(false));
+        } else {
+          setLoading(false);
+        }
+      })
+      .catch(() => setLoading(false));
 
     const {
       data: { subscription },

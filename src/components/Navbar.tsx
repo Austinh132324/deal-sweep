@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, LogOut, User } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import Logo from "./ui/Logo";
 import useDeviceProfile from "../hooks/useDeviceProfile";
@@ -20,12 +20,6 @@ export default function Navbar() {
   };
 
   const firstName = profile?.first_name || undefined;
-
-  useEffect(() => {
-    if (!preferMobileUI) {
-      setMobileOpen(false);
-    }
-  }, [preferMobileUI]);
 
   return (
     <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">

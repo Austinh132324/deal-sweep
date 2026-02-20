@@ -34,11 +34,11 @@ export default function InstallPrompt() {
   return (
     <div className="fixed bottom-0 inset-x-0 z-50 p-4 sm:p-6">
       <div className="max-w-md mx-auto bg-white rounded-2xl border border-gray-200 shadow-2xl p-4 flex items-center gap-4">
-        <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center">
+        <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white ring-1 ring-gray-200 flex items-center justify-center">
           <img
-            src={`${import.meta.env.BASE_URL}icons/broom.svg`}
+            src={`${import.meta.env.BASE_URL}branding/savesweep-mark.svg`}
             alt="SaveSweep"
-            className="w-8 h-8"
+            className="w-10 h-10 rounded-lg"
           />
         </div>
         <div className="flex-1 min-w-0">

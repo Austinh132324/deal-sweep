@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">SaveSweep Mark</title>
+  <desc id="desc">Rounded square icon with gradient background and check broom mark.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#79d93e"/>
+      <stop offset="48%" stop-color="#09c98e"/>
+      <stop offset="100%" stop-color="#0f5fb7"/>
+    </linearGradient>
+    <linearGradient id="bristle" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ecfeff"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0f3c85" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+
+  <g transform="translate(38 30)" filter="url(#soft)">
+    <path d="M118 303c-43 35-80 60-113 61 38 19 87 8 146-33 58-42 101-83 130-123l-31-32c-24 43-68 85-132 127z" fill="#fff" opacity="0.9"/>
+    <path d="M249 102l25-66c5-13 18-19 30-15 11 5 16 18 11 31l-27 66z" fill="#2fbf46"/>
+
+    <path d="M229 103l62 24-16 39-62-24z" fill="#f8fafc"/>
+    <path d="M221 124l79 31-11 28-80-30z" fill="#ecfeff"/>
+
+    <path d="M139 314c52-27 94-70 127-130l38 39c-35 68-87 122-157 161-23 12-48 19-70 15-19-3-35-13-46-30 44-1 83-22 108-55z" fill="url(#bristle)"/>
+
+    <path d="M106 315l52 52" stroke="#0a6cc0" stroke-width="15" stroke-linecap="round"/>
+    <path d="M95 332l45 44" stroke="#0a6cc0" stroke-width="12" stroke-linecap="round"/>
+    <path d="M82 347l38 36" stroke="#0a6cc0" stroke-width="10" stroke-linecap="round"/>
+
+    <path d="M130 291c17 17 34 35 51 52l-35 33-59-60z" fill="#f8fafc"/>
+    <path d="M122 329l22 22 31-30" stroke="#32c44b" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+</svg>

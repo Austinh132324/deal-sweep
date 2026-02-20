@@ -12,10 +12,9 @@ function renderLogo(props: Parameters<typeof Logo>[0] = {}) {
 }
 
 describe("Logo", () => {
-  it("renders the brand name", () => {
+  it("renders the brand image", () => {
     renderLogo();
-    expect(screen.getByText("Save")).toBeInTheDocument();
-    expect(screen.getByText("Sweep")).toBeInTheDocument();
+    expect(screen.getByAltText("SaveSweep")).toBeInTheDocument();
   });
 
   it("renders as a link by default", () => {
